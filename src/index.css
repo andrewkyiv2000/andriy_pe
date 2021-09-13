@@ -1,0 +1,75 @@
+#root {
+  height:100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width:95%;
+  padding-right:2%;
+  padding-left:3%;
+}
+.header {
+  margin-top:15px;
+  display:flex;
+  flex-direction: row;
+}
+ 
+button {
+  height:30px;
+  align-self:flex-end;
+  margin-left:10px;
+  
+}
+.producttitle {
+  padding-right:50%;
+}
+.box {
+  width:80%;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-top:2px solid #acacac;
+  border-bottom:2px solid #acacac;
+  
+}
+/* задает ширину между карточками*/
+.row {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  justify-content: center;
+  margin-right:10px;
+  margin-left:0px;
+  margin-top:10px;
+  margin-bottom:10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+ul {
+  list-style:none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*width sets the number of items in a row*/
+.card {
+  width:20%;
+  border:2px solid rgb(219, 219, 219);
+  padding-left:5px;
+  padding-right:5px;
+  margin-right:10px;
+  margin-bottom:10px;
+  background-color: #ebe9e9;
+  text-align:center;
+  
+}
