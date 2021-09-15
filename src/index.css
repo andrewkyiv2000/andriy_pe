@@ -34,9 +34,10 @@ button {
   margin-bottom:20px;
   border-top:2px solid #acacac;
   border-bottom:2px solid #acacac;
-  
 }
+
 /* задает ширину между карточками*/
+
 .row {
   display:flex;
   flex-direction: row;
@@ -62,6 +63,7 @@ code {
 }
 
 /*width sets the number of items in a row*/
+
 .card {
   width:20%;
   border:2px solid rgb(219, 219, 219);
@@ -71,5 +73,10 @@ code {
   margin-bottom:10px;
   background-color: #ebe9e9;
   text-align:center;
-  
+}
+
+.footer {
+  margin-bottom:20px;
+  margin-top:0px;
+  padding-top:0px;
 }
