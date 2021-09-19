@@ -1,6 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import data from '../Data.js';
 
+class Main extends Component {
+   render() {
+      return (
+         <div className="box">
+         <div class="row center">
+                {data.products.map((product) => (
+                <div key={product._id} className="card">
+                   <a href={`/product/${product._id}`}>
+                   <img 
+                   className="images" 
+                   src={product.image} 
+                   alt={product.name}
+                   />
+                   </a>
+                   <p>{product.name}</p>
+                   <p>{product.price}$</p>
+                </div>))}                            
+          </div>
+       </div>
+      );
+   }
+}
+export default Main
+
+/*
 export default function Main () {
    return (
     <div className="box">
@@ -17,7 +42,7 @@ export default function Main () {
     </div>
    ); 
 }
-        
+*/   
         
 
    
