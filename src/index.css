@@ -135,15 +135,18 @@ code {
 
 .card {
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   width:386px;
   height:444px;
-  justify-content: flex-end; /*puts content of card to bottom*/
+  justify-content: center; /*puts content of card to bottom*/
   border:2px solid rgb(219, 219, 219);
   padding-left:16px;
   padding-right:5px;
   margin-right:10px;
   background-color: #ebe9e9;  
+}
+.images {
+  max-width:300px;
 }
 
 .footer {

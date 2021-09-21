@@ -1,27 +1,34 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
+import {useQuery, gql} from '@apollo/client';
 import Title from '../elements/title.js';
-//import Main from '../elements/main.js';
-import data from '../Data.js';
-//import Product from '../elements/product.html';
+import HOMESCR from '../GraphQL/Queries.js';
 
 
-class HomeScreen extends Component {
-    render() {
-        return (  
+const HomeScreen = () => {
+    const{loading, error, data} = useQuery(HOMESCR)
+    
+        if (loading) return <p>loading...</p>
+        const filtered = data.category.products.slice(0,6)
+        console.log(filtered);
+        
+        return (
             <div className="box">
                 <Title/>
-                <div class="row center">
-                    {data.products.map((product) => (
-                    <div key={product._id} className="card">
-                   <a href={`/product/${product._id}`}>
-                   <img className="images" src={product.image} alt={product.name}/>
-                   </a>
-                   <p>{product.name}</p>
-                   <p>{product.price}$</p>
-                   </div>))}                   
+                <div className="row center">
+                    {filtered.map(display=>(
+                        <div key={display.id} className="card">
+                            <a href={`/product/${display.id}`}>
+                                <img className="images" src={display.gallery.slice(0,1)} alt={display.name}></img>
+                                <p>{display.name}</p>
+                                <p>{display.prices.amount}</p>
+                            </a>
+                        </div>
+                    ))}
                 </div>
-            </div>   
-        );
+            </div>
+        )
     }
-}
+    
 export default HomeScreen
+
+

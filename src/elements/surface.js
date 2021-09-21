@@ -33,14 +33,4 @@ class Surface extends Component {
 }
 export default Surface
 
-/*export default function Head () {
-    return (
-    <div class="header">
-            <h1 class="producttitle">Category name</h1>
-            <button class="add">Add</button>
-            <button class="delete">Mass Delete</button>
-        </div>
-    );
-}*/
-
 
