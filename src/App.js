@@ -5,12 +5,13 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 //import logo from './logo.svg';
 import './App.css';
 import Surface from './elements/surface.js';
-//import Title from './elements/title.js';
+import Title from './elements/title.js';
 //import Main from './elements/main.js';
 //import Footer from './elements/footer.js';
 import HomeScreen from './screens/HomeScreen.js';
-import Products from './screens/ProductScreen';
+import Products from './screens/ProductScreen.js';
 import NotFound from './screens/NotFound.js';
+//import PRODID from "./GraphQL/ProductId";
 //import {OnError} from '@apollo/client/link/error'
 
 
@@ -26,8 +27,9 @@ class App extends Component{
     <ApolloProviderHooks client={client}>
     <BrowserRouter basename="/product-list">
     <Surface/>
+    <Title/>
     <Switch>
-          <Route path={"/product/:id"} exact component={Products}></Route>  
+          <Route path={"/product/:id"} exact component={Products}></Route>
           <Route path="/" exact component={HomeScreen}></Route>   
           <Route component={NotFound}/>
     </Switch>     

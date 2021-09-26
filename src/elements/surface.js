@@ -7,24 +7,24 @@ import cart from '../images/cart.png';
 class Surface extends Component {
     render() {
         return (
-            <div class="surface">
-                <div class="items1">
-                    <div class="categories">
-                        <div class="ttext">WOMEN</div>
-                        <div class="ttext">MEN</div>
-                        <div class="ttext">KIDS</div>
+            <div className="surface">
+                <div className="items1">
+                    <div className="categories">
+                        <div className="ttext">WOMEN</div>
+                        <div className="ttext">MEN</div>
+                        <div className="ttext">KIDS</div>
                     </div>
                 </div>
-                <div class="items1">
-                    <div class="a-logo">
+                <div className="items1">
+                    <div className="a-logo">
                         <img src={logo}></img>
                     </div>
                 </div>
-                <div class="items1">
-                    <div class="actions">
-                        <div class="currency">$</div>
+                <div className="items1">
+                    <div className="actions">
+                        <div className="currency">$</div>
                         <img src={vector}></img>
-                        <img src={cart} class="cart"></img>
+                        <img src={cart} className="cart"></img>
                     </div>
                 </div>
             </div>
