@@ -2,17 +2,23 @@ import React, {Component} from 'react';
 import logo from '../images/logo.png';
 import vector from '../images/vector.png';
 import cart from '../images/cart.png';
+//import { render } from 'react-dom';
+import CAT from '../GraphQL/Category.js';
+import {graphql} from '@apollo/client/react/hoc';
 
 
-class Surface extends Component {
-    render() {
+class Menu extends Component {
+
+    renderMenu() {
+
+    const MenuItems = this.props.data
+
         return (
-            <div className="surface">
+            <div className="menu">
                 <div className="items1">
                     <div className="categories">
-                        <div className="ttext">WOMEN</div>
-                        <div className="ttext">MEN</div>
-                        <div className="ttext">KIDS</div>
+                        <div className="ttext">{MenuItems.categories[0].name}</div>
+                        <div className="ttext">{MenuItems.categories[1].name}</div>
                     </div>
                 </div>
                 <div className="items1">
@@ -30,7 +36,22 @@ class Surface extends Component {
             </div>
         );
     }
+
+
+render() {
+
+if (this.props.data.loading) {return <div>Londing...</div>;}
+console.log(this.props)
+
+return(
+    <div>
+       {this.renderMenu()}
+    </div>
+);
 }
-export default Surface
+}
+
+
+export default graphql(CAT)(Menu);
 
 

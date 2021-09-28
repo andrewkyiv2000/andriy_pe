@@ -4,7 +4,7 @@ import {ApolloProvider as ApolloProviderHooks} from "@apollo/client";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 //import logo from './logo.svg';
 import './App.css';
-import Surface from './elements/surface.js';
+import Menu from './elements/menu.js';
 //import Title from './elements/title.js';
 //import Main from './elements/main.js';
 //import Footer from './elements/footer.js';
@@ -26,7 +26,7 @@ class App extends Component{
     <ApolloProvider client={client}> 
     <ApolloProviderHooks client={client}>
     <BrowserRouter>
-    <Surface/>
+    <Menu/>
    
     <Switch>
       
