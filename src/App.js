@@ -5,7 +5,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 //import logo from './logo.svg';
 import './App.css';
 import Surface from './elements/surface.js';
-import Title from './elements/title.js';
+//import Title from './elements/title.js';
 //import Main from './elements/main.js';
 //import Footer from './elements/footer.js';
 import HomeScreen from './screens/HomeScreen.js';
@@ -25,12 +25,13 @@ class App extends Component{
     return (
     <ApolloProvider client={client}> 
     <ApolloProviderHooks client={client}>
-    <BrowserRouter basename="/product-list">
+    <BrowserRouter>
     <Surface/>
-    <Title/>
+   
     <Switch>
+      
           <Route path={"/product/:id"} exact component={Products}></Route>
-          <Route path="/" exact component={HomeScreen}></Route>   
+          <Route path="/" component={HomeScreen}></Route>   
           <Route component={NotFound}/>
     </Switch>     
     </BrowserRouter>

@@ -6,13 +6,11 @@ import TITLECAT from '../GraphQL/titlecat.js';
 class Title extends Component {
     renderTitl() {
         
-        return this.props.data.categories.map(cat =>{
-            return (
+        return (
                 <div class="Title">
-            <h1>Category: {cat.name}</h1>
+            <h1>Category: {this.props.data.categories[1].name}</h1>
         </div>           
             )
-        })
     }
 
     render() {

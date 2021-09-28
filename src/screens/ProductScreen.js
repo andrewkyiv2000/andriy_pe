@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
-import React, {Component, useEffect, useState, Fragment} from 'react';
-import { gql, useQuery, useLazyQuery} from "@apollo/client";
+import React, {Component } from 'react';
+import { gql } from "@apollo/client";
 import { graphql } from '@apollo/client/react/hoc'
 import PRODID from '../GraphQL/ProductId.js';
 import NotFound from './NotFound.js';
-
+//import Swatch from '../elements/swatch.js';
 
 
 class Products extends Component {
@@ -14,7 +14,7 @@ class Products extends Component {
         if (!product){return <div>Loading...</div>}
        
         return(
-            <div className="row">
+            <div className="prow">
             <div className="pdp1">
                 <div className="bpdp1">
                     <img className="ipdp1" src={product.gallery}></img>
@@ -27,7 +27,25 @@ class Products extends Component {
 
             </div>
             <div className="pdp3">
+                <p className="brand">{product.brand}</p>
+                <p className="name">{product.name}</p>    
+                <p>{product.inStock}</p>    
+                <div className="attr1">{product.attributes[0].id}:
+                    <div className="attr1box">
+                      
+                        <div>{product.attributes[0].items[0].displayValue}</div>
+                        <div>{product.attributes[0].items[1].displayValue}</div>
+                        <div>{product.attributes[0].items[2].displayValue}</div>
+                        <div>{product.attributes[0].items[3].displayValue}</div>
+                        <div>{product.attributes[0].items[4].displayValue}</div>
+                        </div> 
+                </div>        
+                <p className="pricename">Price: </p>
+                <p className="amount">{product.prices[0].amount} $</p>
+                <button className="buttonpdp">Add to cart</button>
+                <p className="description">About the product: {product.description}</p>
 
+                
             </div>
         </div>
         )
