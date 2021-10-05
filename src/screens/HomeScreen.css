@@ -1,0 +1,31 @@
+/* Home page start*/
+
+.row1, .row2 {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    align-content: space-between;
+    justify-content: left;
+    margin-right:0px;
+    margin-left:0px;
+    margin-top:10px;
+    margin-bottom:10px;
+    flex-wrap: wrap;
+  }
+  /*width sets the number of items in a row*/
+  .card {
+    display:flex;
+    flex-direction:row;
+    width:386px;
+    height:444px;
+    justify-content: center; /*puts content of card to bottom*/
+    border:2px solid rgb(219, 219, 219);
+    padding-left:16px;
+    padding-right:5px;
+    margin-right:10px;
+    background-color: #ebe9e9;  
+  }
+  .images {
+    max-width:300px;
+  }
+  /* Home page end*/

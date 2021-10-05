@@ -30,10 +30,20 @@ background: #FFFFFF;
   width:100%;
 }
 .ttext {
+  display:block;
   font-family:'Raleway', sans-serif;
   font-style:normal;
   font-weight: 600;
   font-size:16px;
+}
+.tlink {
+  color:#1D1F22;
+  text-decoration: none;
+}
+.ttext a:focus, a:active {
+  color:#5ECE7B;
+  text-decoration: underline;
+  text-underline-position: below;
 }
 
 .items1 {
@@ -77,7 +87,7 @@ background: #FFFFFF;
   padding-right:10px;
 }
 
-/* top menu "surface" END */
+/* top menu END */
 
 
 .Title {
@@ -169,6 +179,27 @@ background: #FFFFFF;
   font-family: 'Raleway', sans-serif;
   font-style:normal;
   font-size:27px;
+}
+
+.availability {
+  margin-top:40px;
+  padding-top:0px;
+  margin-bottom:0px;
+  padding-bottom:0px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style:normal;
+  font-weight: 700;
+  font-size:18px;
+}
+.availabilityAttr {
+  margin-top:10px;
+  padding-top:0px;
+  margin-bottom:0px;
+  padding-bottom:0px;
+  font-family:'Raleway', sans-serif;
+  font-style:normal;
+  font-weight: 700;
+  font-size:18px;
 }
 
 .attr1 {

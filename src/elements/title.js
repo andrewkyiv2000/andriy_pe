@@ -7,7 +7,7 @@ class Title extends Component {
     renderTitl() {
         
         return (
-                <div class="Title">
+                <div className="Title">
             <h1>Category: {this.props.data.categories[1].name}</h1>
         </div>           
             )

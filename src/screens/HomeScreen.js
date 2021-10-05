@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import { graphql } from '@apollo/client/react/hoc';
 import CAT from '../GraphQL/Category.js';
 import {Query} from '@apollo/client/react/components';
+import './HomeScreen.css';
 
 class HomeScreen extends Component {
     
