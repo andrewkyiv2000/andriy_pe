@@ -23,7 +23,6 @@
 }
 
 .radioLabel:focus-within {
-    background: #1D1F22;
     border: 1px solid #1D1F22;
     box-sizing: border-box;
    
@@ -35,7 +34,6 @@
     z-index: -1;
 }
 .radioInput[type="radio"]:checked + .shadow{
-    background-color: #1D1F22;
     border: 1px solid #1D1F22;
     z-index: 0;
 }

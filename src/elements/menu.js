@@ -5,7 +5,7 @@ import cart from "../images/cart.png";
 //import { render } from 'react-dom';
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
-import CartDropdown from "./cartdropdown.js";
+//import CartDropdown from "./Dropdown/Cartdropdown.js";
 
 class Menu extends Component {
   renderMenu() {
@@ -48,7 +48,7 @@ class Menu extends Component {
               </select>
             </div>
             <img src={vector}></img>
-            <CartDropdown />
+           
           </div>
         </div>
       </div>

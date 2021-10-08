@@ -7,6 +7,7 @@ class RadioButtonColor extends Component {
     return (
       <fieldset className="radioButton">
         <legend className="radioTitle">{this.props.title}</legend>
+      
         {this.props.options.map((option) => (
           <label className="radioLabel">
             <input

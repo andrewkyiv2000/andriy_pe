@@ -9,6 +9,8 @@ import formatCurrency from "format-currency";
 import RadioButtonColor from "../elements/RadioButtonColor/index.js";
 import Capacity from "../elements/attribute2/index.js";
 import "./ProductScreen.css";
+import { connect } from 'react-redux'
+import { addTodo } from '../redux/actions'
 
 class Products extends Component {
   render() {
@@ -41,12 +43,10 @@ class Products extends Component {
           <RadioButtonColor
             name="color"
             title={product.attributes[0].name}
-            options={product.attributes[0].items.map((item) => {
-              return {
-                label: item.displayValue,
-                value: item.value,
-              };
-            })}
+            options={product.attributes[0].items.map((item) => ({
+              label: item.displayValue,
+              value: item.value,
+            }))}
           />
           <Capacity
             title={product.attributes[1].id}
@@ -63,7 +63,11 @@ class Products extends Component {
           <p className="amount">
             {formatCurrency(`${product.prices[0].amount}`, opts)}
           </p>
-          <button className="buttonpdp">Add to cart</button>
+          <button className="buttonpdp" onClick={()=>this.props.addTodo({
+            
+          id:100,
+          content: product
+          })}>Add to cart</button>
           <p className="description">
             About the product: {product.description}
           </p>
@@ -73,10 +77,10 @@ class Products extends Component {
   }
 }
 
-export default graphql(PRODID, {
+export default connect(null, { addTodo })(graphql(PRODID, {
   options: (props) => {
     return {
       variables: { id: props.match.params.id },
     };
   },
-})(Products);
+})(Products));
