@@ -9,8 +9,9 @@ import formatCurrency from "format-currency";
 import RadioButtonColor from "../elements/RadioButtonColor/index.js";
 import Capacity from "../elements/attribute2/index.js";
 import "./ProductScreen.css";
-import { connect } from 'react-redux'
-import { addTodo } from '../redux/actions'
+import { connect } from "react-redux";
+import { addItems } from "../features/cart/cartSlice.js";
+import {Link} from "react-router-dom";
 
 class Products extends Component {
   render() {
@@ -63,11 +64,18 @@ class Products extends Component {
           <p className="amount">
             {formatCurrency(`${product.prices[0].amount}`, opts)}
           </p>
-          <button className="buttonpdp" onClick={()=>this.props.addTodo({
-            
-          id:100,
-          content: product
-          })}>Add to cart</button>
+          <button
+            className="buttonpdp"
+            onClick={() =>
+              this.props.addItems({
+                id: 100,
+                content: product,
+              })
+            }
+          >
+            Add to cart
+          </button>
+          <Link to="../cart">Show Cart</Link>
           <p className="description">
             About the product: {product.description}
           </p>
@@ -76,11 +84,16 @@ class Products extends Component {
     );
   }
 }
+const mapStateRedux = (stateRedux) => ({
+  items:stateRedux.cart.value
+})
 
-export default connect(null, { addTodo })(graphql(PRODID, {
-  options: (props) => {
-    return {
-      variables: { id: props.match.params.id },
-    };
-  },
-})(Products));
+export default connect(mapStateRedux, { addItems })(
+  graphql(PRODID, {
+    options: (props) => {
+      return {
+        variables: { id: props.match.params.id },
+      };
+    },
+  })(Products)
+);

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Title from '../elements/title.js';
+import Title from '../elements/Title.js';
 import { render } from '@testing-library/react';
 import { graphql } from '@apollo/client/react/hoc';
 import CAT from '../GraphQL/Category.js';

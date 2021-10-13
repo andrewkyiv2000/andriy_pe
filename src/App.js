@@ -12,7 +12,7 @@ import Menu from "../src/elements/Menu.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import Products from "./screens/ProductScreen.js";
 import NotFound from "./screens/NotFound.js";
-import Cart from "./screens/Cart.js";
+import Cart from "./features/cart/Cart.js";
 //import PRODID from "./GraphQL/ProductId";
 //import {OnError} from '@apollo/client/link/error'
 import store from './store';
