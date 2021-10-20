@@ -3,34 +3,67 @@ import { connect } from "react-redux";
 import { graphql } from "@apollo/client/react/hoc";
 import CAT from "../../GraphQL/Category";
 import { removeItems } from "./cartSlice";
-
-
+//import RadioButtonColor from "../../elements/RadioButtonColor/index.js";
+import formatCurrency from "format-currency";
+import Counter from "../counter/Counter.js";
+import "./Cart.css";
 
 class Cart extends Component {
   render() {
-
-    console.log(this.props)
+    let opts = { format: "%s%v", symbol: "$" };
+    console.log(this.props);
+    //const attr1 = this.props.items[0].content.attributes[0].items;
     return (
-      <div className="pagename">
-          <h1>Item is {this.props.items.length}</h1>
-        
-        <ul className="cartrows">
+      <div className="page">
+        <div className="cart">CART</div>
+        <div className="list">
           {this.props.items.map((item) => (
-            <li key={item.id}>{item.content.name}</li>
+            <div key={item.id}>
+              <div className="row">
+                <div className="itemleft">
+                  <p className="brand">{item.brand}</p>
+                  <p className="name">{item.name}</p>
+                  <p className="amount">
+                    {formatCurrency(`${item.prices[0].amount}`, opts)}
+                  </p>
+                  <p>
+                    <label className="radioLabel">
+                      <div
+                        style={{
+                          width: "63px",
+                          height: "45px",
+                          border: "1px solid rgb(29, 31, 34)",
+                          backgroundColor: item.value,
+                        }}
+                      />
+                    </label>
+                  </p>
+                  <p>{item.attributes[1].items.displayValue}</p>
+                </div>
+                <div className="itemright">
+                  <div>
+                    <Counter />
+                  </div>
+                  <p>
+                    <img className="cartimage" src={item.gallery} />
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+          ;
+        </div>
       </div>
     );
   }
 }
 //получаем состояние, считываем
 const mapStateRedux = (stateRedux) => ({
-    items:stateRedux.cart.value
-})
+  items: stateRedux.cart.value,
+});
 
 //определяем экшены
 
-const mapActions = {removeItems};
-
+const mapActions = { removeItems };
 
 export default connect(mapStateRedux, mapActions)(Cart);

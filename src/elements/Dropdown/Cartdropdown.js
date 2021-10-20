@@ -4,6 +4,8 @@ import CartContext from "../context/CartContext.js";
 
 export default class CartDropdown extends Component {
   render() {
-    return <div></div>;
+    return  <div className="pagename">
+          <h1>Item is {this.props.items.length}</h1>
+    </div>;
   }
 }

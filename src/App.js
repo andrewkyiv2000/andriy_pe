@@ -32,7 +32,7 @@ class App extends Component {
         <ApolloProviderHooks client={client}>
           <BrowserRouter>
             <Menu />
-            <Counter/>
+           
             <Switch>
               <Route path="/product/:id" exact component={Products}></Route>
               <Route path="/cart" component={Cart}></Route>

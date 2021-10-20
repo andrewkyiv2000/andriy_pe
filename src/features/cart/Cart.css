@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart {
+  display: inline-block;
+  position: absolute;
+  text-align: left;
+  margin-left: 101px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 160px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  justify-items: left;
+  justify-content: left;
+  align-items: top;
+  margin-top: 280px;
+  margin-left: 101px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.itemleft {
+  position: relative;
+  padding-top: none;
+  margin-top: none;
+  margin-right: 607px;
+  display: flex;
+  flex-direction: column;
+  width: 292px;
+}
+.itemright {
+  position: relative;
+  padding-top: none;
+  margin-top: none;
+  display: flex;
+  flex-direction: row;
+  height: 185px;
+  width: 200px;
+}
+.cartimage {
+  width: 141px;
+  margin-left: 27px;
+}

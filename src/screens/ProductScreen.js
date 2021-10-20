@@ -15,6 +15,11 @@ import {Link} from "react-router-dom";
 
 class Products extends Component {
   render() {
+    function changeFunc() {
+      var selectBox = document.getElementById("selectBox");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      console.log(selectedValue);
+     }
     const { product } = this.props.data;
     console.log(this.props);
     let opts = { format: "%s%v", symbol: "$" };
@@ -48,8 +53,13 @@ class Products extends Component {
               label: item.displayValue,
               value: item.value,
             }))}
+            onClick={()=>
+            this.props.addItems({
+              content:product
+            })}
           />
           <Capacity
+           onChange="changeFunc();"
             title={product.attributes[1].id}
             options={product.attributes[1].items.map((item) => {
               return {
@@ -57,6 +67,7 @@ class Products extends Component {
                 displayValue: item.displayValue,
                 value: item.value,
               };
+             
             })}
           />
 
@@ -67,10 +78,7 @@ class Products extends Component {
           <button
             className="buttonpdp"
             onClick={() =>
-              this.props.addItems({
-                id: 100,
-                content: product,
-              })
+              this.props.addItems(product)
             }
           >
             Add to cart

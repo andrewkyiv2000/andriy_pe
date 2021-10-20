@@ -7,6 +7,13 @@ export const counterSlice = createSlice({
   },
   reducers: {
     addItems: (state, action) => {
+    const product = action.payload;
+    const id = product.id;
+    
+    for (var i=0; i<state.value.length; i++){
+      const item = state.value[i]
+    }
+    
   
       state.value=state.value.concat(action.payload)
     },
