@@ -6,31 +6,34 @@ import cart from "../images/cart.png";
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
 //import CartDropdown from "./Dropdown/Cartdropdown.js";
+import { NavLink, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from "react";
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      click: "category",
+    };
+  }
   renderMenu() {
     const MenuItems = this.props.data;
+   // console.log(this.state.click);
 
     return (
       <div className="menu">
         <div className="items1">
           <div className="categories">
-            <div className="ttext">
-              <a
-                className="tlink"
-                href={`/category/${MenuItems.categories[0].name}`}
-              >
-                {MenuItems.categories[0].name}
-              </a>
-            </div>
-            <div className="ttext">
-              <a
-                className="tlink"
-                href={`/category/${MenuItems.categories[1].name}`}
-              >
-                {MenuItems.categories[1].name}
-              </a>
-            </div>
+            {MenuItems.categories.map((category) => {
+              return (
+                <div className="ttext">
+                  <Link to={`/category/${category.name}`}>
+                    <a className="tlink">{category.name}</a>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="items1">
@@ -48,7 +51,6 @@ class Menu extends Component {
               </select>
             </div>
             <img src={vector}></img>
-           
           </div>
         </div>
       </div>
@@ -65,6 +67,8 @@ class Menu extends Component {
   }
 }
 
-export default graphql(CAT)(Menu);
+
+export default (graphql(CAT)(Menu));
 
 //<img src={cart} className="cart"></img>
+//graphql(CAT)(Menu)

@@ -5,7 +5,6 @@ import CAT from "../../GraphQL/Category";
 import { removeItems } from "./cartSlice";
 //import RadioButtonColor from "../../elements/RadioButtonColor/index.js";
 import formatCurrency from "format-currency";
-import Counter from "../counter/Counter.js";
 import "./Cart.css";
 
 class Cart extends Component {
@@ -38,11 +37,11 @@ class Cart extends Component {
                       />
                     </label>
                   </p>
-                  <p>{item.attributes[1].items.displayValue}</p>
+                  {/*<p>{item.attributes[1].items.displayValue}</p>*/}
                 </div>
                 <div className="itemright">
                   <div>
-                    <Counter />
+              
                   </div>
                   <p>
                     <img className="cartimage" src={item.gallery} />

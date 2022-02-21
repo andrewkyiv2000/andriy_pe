@@ -11,21 +11,20 @@ import Capacity from "../elements/attribute2/index.js";
 import "./ProductScreen.css";
 import { connect } from "react-redux";
 import { addItems } from "../features/cart/cartSlice.js";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 class Products extends Component {
   render() {
-    function changeFunc() {
-      var selectBox = document.getElementById("selectBox");
-      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-      console.log(selectedValue);
-     }
+    console.log(this.props.data)
     const { product } = this.props.data;
-    console.log(this.props);
-    let opts = { format: "%s%v", symbol: "$" };
     if (!product) {
-      return <div>Loading...</div>;
+      return <div>Loading2...</div>;
     }
+    const attributeList = product.attributes;
+    console.log(this.props.data);
+    let opts = { format: "%s%v", symbol: "$" };
+    
 
     return (
       <div className="prow">
@@ -42,23 +41,28 @@ class Products extends Component {
         <div className="pdp3">
           <p className="brand">{product.brand}</p>
           <p className="name">{product.name}</p>
-          <p className="availability">Availability:</p>
-          <p className="availabilityAttr">
-            {product.inStock ? "Available" : "Not in stock"}
-          </p>
-          <RadioButtonColor
-            name="color"
-            title={product.attributes[0].name}
-            options={product.attributes[0].items.map((item) => ({
-              label: item.displayValue,
-              value: item.value,
-            }))}
-            onClick={()=>
-            this.props.addItems({
-              content:product
-            })}
-          />
-          <Capacity
+
+          <div>
+            <ul>
+              {attributeList.map((attr) => (
+                <RadioButtonColor
+                  name="color"
+                  title={attr.name}
+                  options={attr.items.map((item) => ({
+                    label: item.displayValue,
+                    value: item.value,
+                  }))}
+                  onClick={() =>
+                    this.props.addItems({
+                      content: product,
+                    })
+                  }
+                />
+              ))}
+            </ul>
+          </div>
+
+          {/*<Capacity
            onChange="changeFunc();"
             title={product.attributes[1].id}
             options={product.attributes[1].items.map((item) => {
@@ -69,7 +73,7 @@ class Products extends Component {
               };
              
             })}
-          />
+          />*/}
 
           <p className="pricename">Price: </p>
           <p className="amount">
@@ -77,9 +81,7 @@ class Products extends Component {
           </p>
           <button
             className="buttonpdp"
-            onClick={() =>
-              this.props.addItems(product)
-            }
+            onClick={() => this.props.addItems(product)}
           >
             Add to cart
           </button>
@@ -93,8 +95,8 @@ class Products extends Component {
   }
 }
 const mapStateRedux = (stateRedux) => ({
-  items:stateRedux.cart.value
-})
+  items: stateRedux.cart.value,
+});
 
 export default connect(mapStateRedux, { addItems })(
   graphql(PRODID, {
@@ -105,3 +107,8 @@ export default connect(mapStateRedux, { addItems })(
     },
   })(Products)
 );
+
+/*<p className="availability">Availability:</p>
+          <p className="availabilityAttr">
+            {product.inStock ? "Available" : "Not in stock"}
+            </p> */

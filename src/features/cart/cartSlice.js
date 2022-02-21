@@ -30,3 +30,5 @@ export const counterSlice = createSlice({
 export const { addItems, removeItems, incrementByAmount } = counterSlice.actions
 
 export default counterSlice.reducer;
+
+

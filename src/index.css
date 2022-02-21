@@ -33,9 +33,14 @@ background: #FFFFFF;
   display:block;
   font-family:'Raleway', sans-serif;
   font-style:normal;
-  font-weight: 600;
+  font-weight: 400;
+  font-style:normal;
   font-size:16px;
+  text-transform:uppercase;
+  height:20px;
+  padding-right:32px;
 }
+
 .tlink {
   color:#1D1F22;
   text-decoration: none;
@@ -56,14 +61,10 @@ background: #FFFFFF;
   align-content:space-between;
   text-align:center;
   justify-content: center;
-  padding-left:90px;
+  padding-left:117px;
+  padding-right:32px;
 }
 
-.ttext {
-  display:block;
-  width:65px;
-  height:20px;
-}
 
 .a-logo {
   display:block;

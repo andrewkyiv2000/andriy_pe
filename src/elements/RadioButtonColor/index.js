@@ -18,6 +18,8 @@ class RadioButtonColor extends Component {
               type="radio"
               key={option.value}
               value={option.value}
+              id={option.value}
+              name={this.props.name}
             />
             <div
               className="shadow"

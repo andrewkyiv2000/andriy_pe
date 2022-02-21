@@ -13,12 +13,15 @@ query {
       description
       gallery
       prices{
-        currency
+        currency{
+          label
+          symbol
+        }
         amount
-      }
     }
   }
 } 
+}
 `;
 
 export default CAT;
@@ -45,4 +48,18 @@ query product {
 } 
 */
 
-
+/*query {
+  categories{
+    name
+    products{
+      id
+      name
+      description
+      gallery
+      prices{
+        currency
+        amount
+      }
+    }
+  }
+} */

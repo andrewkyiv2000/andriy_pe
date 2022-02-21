@@ -2,13 +2,16 @@ import { render } from '@testing-library/react';
 import React, {Component, Fragment} from 'react';
 import { graphql } from '@apollo/client/react/hoc';
 import TITLECAT from '../GraphQL/titlecat.js';
+import Menu from './menu.js';
 
 class Title extends Component {
     renderTitl() {
+
+        const catname = this.props.data
         
         return (
                 <div className="Title">
-            <h1>Category: {this.props.data.categories[1].name}</h1>
+            <h1>Category: {catname.categories[1].name}</h1>
         </div>           
             )
     }
