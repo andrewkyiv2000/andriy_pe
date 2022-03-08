@@ -14,9 +14,9 @@ class Cart extends Component {
     //const attr1 = this.props.items[0].content.attributes[0].items;
     return (
       <div className="page">
-        <div className="cart">CART</div>
+        <div className="cart">CART </div>
         <div className="list">
-          {this.props.items.map((item) => (
+          {this.props.cartRange.map((item) => (
             <div key={item.id}>
               <div className="row">
                 <div className="itemleft">
@@ -40,12 +40,14 @@ class Cart extends Component {
                   {/*<p>{item.attributes[1].items.displayValue}</p>*/}
                 </div>
                 <div className="itemright">
-                  <div>
-              
-                  </div>
-                  <p>
+                  <div></div>
+                  <div className="rightrow">
+                    <div className="counter">
+                      <button className="counterbutt">+</button>
+                      <button className="counterbutt">-</button>
+                    </div>
                     <img className="cartimage" src={item.gallery} />
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -57,12 +59,7 @@ class Cart extends Component {
   }
 }
 //получаем состояние, считываем
-const mapStateRedux = (stateRedux) => ({
-  items: stateRedux.cart.value,
-});
 
 //определяем экшены
 
-const mapActions = { removeItems };
-
-export default connect(mapStateRedux, mapActions)(Cart);
+export default Cart;

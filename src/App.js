@@ -17,7 +17,7 @@ import Cart from "./features/cart/Cart.js";
 //import {OnError} from '@apollo/client/link/error'
 import store from "./store";
 import { Provider } from "react-redux";
-
+//import CartDropdown from "./elements/Dropdown/cartdropdown.js";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
@@ -25,17 +25,55 @@ const client = new ApolloClient({
 });
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cartRange: [],
+    };
+  }
+
+  addtoCart = (банан) => {
+    this.setState((state) => {
+      return { cartRange: state.cartRange.concat(банан) };
+    });
+  };
+
+  cartCheckupVolume = (продукт) => {
+    let isProductInCart = false;
+
+    for (let value of this.state.cartRange) {
+      if (value.id === продукт.id) {
+        isProductInCart = true;
+      }
+    }
+
+    if (isProductInCart === true) {
+      console.log("продукт уже в корзине");
+    } else {
+      this.setState((state) => {
+        return { cartRange: state.cartRange.concat(продукт) };
+      });
+    }
+  };
+
   render() {
     return (
       <Provider store={store}>
         <ApolloProvider client={client}>
           <ApolloProviderHooks client={client}>
             <BrowserRouter>
-              <Menu />
+              <Menu cartRange={this.state.cartRange} />
               <Switch>
-                <Route path="/product/:id" exact component={Products}></Route>
+                <Route path="/product/:id" exact>
+                  <Products onClick={this.cartCheckupVolume} />{" "}
+                  {/*we pass to onClick, evertyhing we pass to onClick will be caught*/}
+                </Route>
                 <Route path="/category/:id" component={HomeScreen}></Route>
-                <Route path="/cart" component={Cart}></Route>
+                <Route path="/cart">
+                  <Cart cartRange={this.state.cartRange} />
+                  {/*we pass counter and can be any word here */}
+                </Route>
                 <Route path="/" component={HomeScreen}></Route>
                 <Route component={NotFound} />
               </Switch>
@@ -49,4 +87,4 @@ class App extends Component {
 
 export default App;
 
-//
+// <Menu onClick={this.state} />

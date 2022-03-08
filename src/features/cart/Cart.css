@@ -51,6 +51,24 @@
   height: 185px;
   width: 200px;
 }
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.counterbutt{
+  width:45px;
+  height:45px;
+  border: 1px solid #1D1F22;
+}
+
+.rightrow {
+  display: flex;
+  flex-direction:row;
+  justify-content: left;
+}
 .cartimage {
   width: 141px;
   margin-left: 27px;

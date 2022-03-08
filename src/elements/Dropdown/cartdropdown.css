@@ -1,0 +1,9 @@
+.dropdown_main {
+  position: absolute;
+  width: 325px;
+  height: 540px;
+  right: 87px;
+  top: 78px;
+  background-color: beige;
+  color:blue;
+}

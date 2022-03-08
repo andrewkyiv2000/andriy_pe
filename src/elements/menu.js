@@ -9,17 +9,22 @@ import { graphql } from "@apollo/client/react/hoc";
 import { NavLink, Link } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
+import CartDropdown from "./Dropdown/cartdropdown.js";
 
 class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       click: "category",
+      dropdownon: false,
     };
   }
+
   renderMenu() {
     const MenuItems = this.props.data;
-   // console.log(this.state.click);
+    const dropdownon = this.state.dropdownon;
+    const cartRange = this.props.cartRange
+    console.log(cartRange);
 
     return (
       <div className="menu">
@@ -43,14 +48,28 @@ class Menu extends Component {
         </div>
         <div className="items1">
           <div className="actions">
-            <div className="currency">
-              <select id="currency">
-                <option>$ USD</option>
-                <option>€ Euro</option>
-                <option>¥ Yen</option>
+            <div className="actions_left">
+              <select className="currency" id="currency">
+                <option>$ </option>
+                <option>€ </option>
+                <option>¥ </option>
               </select>
+              <span className="currencyicon"></span>
             </div>
-            <img src={vector}></img>
+            <a>
+              <span
+                className="cart_icon"
+                onClick={() =>
+                  this.setState(({ dropdownon }) => ({
+                    dropdownon: !dropdownon,
+                  }))
+                }
+              ></span>
+            </a>
+            <div>
+              {dropdownon && <CartDropdown cartRange={cartRange} />}
+              <hr />
+            </div>
           </div>
         </div>
       </div>
@@ -67,8 +86,8 @@ class Menu extends Component {
   }
 }
 
-
-export default (graphql(CAT)(Menu));
+export default graphql(CAT)(Menu);
 
 //<img src={cart} className="cart"></img>
 //graphql(CAT)(Menu)
+//{this.props.cartRange.map((e)=>e.name)}

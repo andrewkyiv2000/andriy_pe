@@ -1,75 +1,72 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
 body {
-margin-left:20px;
-margin-right:20px;
-width:1400px;
-height: 1513px;
-background: #FFFFFF;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 1400px;
+  height: 1513px;
+  background: #ffffff;
 }
 
 .box {
-  width:100%;
-  margin-left:80px;
-  margin-top:20px;
-  margin-bottom:20px;
+  width: 100%;
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
-
 
 /* top menu start */
 
 .menu {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width:100%;
+  width: 100%;
 }
 .ttext {
-  display:block;
-  font-family:'Raleway', sans-serif;
-  font-style:normal;
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
   font-weight: 400;
-  font-style:normal;
-  font-size:16px;
-  text-transform:uppercase;
-  height:20px;
-  padding-right:32px;
+  font-style: normal;
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 20px;
+  padding-right: 32px;
 }
 
 .tlink {
-  color:#1D1F22;
+  color: #1d1f22;
   text-decoration: none;
 }
-.ttext a:focus, a:active {
-  color:#5ECE7B;
+.ttext a:focus,
+a:active {
+  color: #5ece7b;
   text-decoration: underline;
   text-underline-position: below;
 }
 
 .items1 {
-  margin-top:28px;
+  margin-top: 28px;
 }
 
 .categories {
-  display:flex;
-  flex-direction:row;
-  align-content:space-between;
-  text-align:center;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  text-align: center;
   justify-content: center;
-  padding-left:117px;
-  padding-right:32px;
+  padding-left: 117px;
+  padding-right: 32px;
 }
 
-
 .a-logo {
-  display:block;
-  width:41px;
-  height:41px;
+  display: block;
+  width: 41px;
+  height: 41px;
 }
 .actions {
   display: flex;
@@ -79,65 +76,89 @@ background: #FFFFFF;
   width: 204px;
   height: 40px;
   top: 23px;
+  gap: 22px;
 }
+
+.actions_left {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.cart_icon {
+  background: url("images/cart.png");
+  display: block;
+  width: 20px;
+  height: 18px;
+}
+
 .cart {
-  padding-left:22px;
-  padding-right:80px;
+  padding-left: 22px;
+  padding-right: 80px;
 }
+
+.actions_left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .currency {
-  padding-right:10px;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+
+.currencyicon {
+  display: block;
+  background: url("images/vector.png");
+  width: 8px;
+  height: 4px;
 }
 
 /* top menu END */
 
-
 .Title {
-  margin-top:80px;
-  display:block;
+  margin-top: 80px;
+  display: block;
   width: 299px;
   height: 68px;
   font-family: Raleway;
-  font-style:normal;
+  font-style: normal;
   font-weight: normal;
 }
 
-
 .bpdp1 {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  margin-right:15px;
-  margin-left:100px;
-  margin-top:82px;
+  margin-right: 15px;
+  margin-left: 100px;
+  margin-top: 82px;
 }
 .ipdp1 {
-  margin-bottom:33px;
-  margin-left:80px;
-  width:79px;
-  height:80px;
+  margin-bottom: 33px;
+  margin-left: 80px;
+  width: 79px;
+  height: 80px;
 }
 .ipdp1 {
-  width:80px;
-  height:79px;
+  width: 80px;
+  height: 79px;
 }
 /* задает ширину между карточками*/
 
-
-
-
 ul {
-  list-style:none;
+  list-style: none;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-
-
-
 .footer {
-  margin-bottom:20px;
-  margin-top:0px;
-  padding-top:0px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  padding-top: 0px;
 }

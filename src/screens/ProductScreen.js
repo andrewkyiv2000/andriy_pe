@@ -12,11 +12,11 @@ import "./ProductScreen.css";
 import { connect } from "react-redux";
 import { addItems } from "../features/cart/cartSlice.js";
 import { Link } from "react-router-dom";
-
+import { withRouter } from "react-router";
 
 class Products extends Component {
   render() {
-    console.log(this.props.data)
+    console.log("products", this.props);
     const { product } = this.props.data;
     if (!product) {
       return <div>Loading2...</div>;
@@ -24,7 +24,6 @@ class Products extends Component {
     const attributeList = product.attributes;
     console.log(this.props.data);
     let opts = { format: "%s%v", symbol: "$" };
-    
 
     return (
       <div className="prow">
@@ -52,11 +51,11 @@ class Products extends Component {
                     label: item.displayValue,
                     value: item.value,
                   }))}
-                  onClick={() =>
+                  /*onClick={() =>
                     this.props.addItems({
                       content: product,
                     })
-                  }
+                  }*/
                 />
               ))}
             </ul>
@@ -79,10 +78,7 @@ class Products extends Component {
           <p className="amount">
             {formatCurrency(`${product.prices[0].amount}`, opts)}
           </p>
-          <button
-            className="buttonpdp"
-            onClick={() => this.props.addItems(product)}
-          >
+          <button className="buttonpdp" onClick={() => this.props.onClick(product)}>
             Add to cart
           </button>
           <Link to="../cart">Show Cart</Link>
@@ -94,11 +90,9 @@ class Products extends Component {
     );
   }
 }
-const mapStateRedux = (stateRedux) => ({
-  items: stateRedux.cart.value,
-});
 
-export default connect(mapStateRedux, { addItems })(
+
+export default withRouter(
   graphql(PRODID, {
     options: (props) => {
       return {
