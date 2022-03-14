@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap");
 
 .dropdown_main {
-  position: absolute;
+  position:absolute;
   width: 325px;
   height: 540px;
   border: solid black 2px;

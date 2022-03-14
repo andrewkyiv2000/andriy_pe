@@ -7,4 +7,3 @@ export default configureStore({
       cart: cartReducer
     }
   })
-

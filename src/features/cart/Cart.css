@@ -55,18 +55,27 @@
 .counter {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
-.counterbutt{
-  width:45px;
-  height:45px;
-  border: 1px solid #1D1F22;
+.cart_counter {
+  text-align: center;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 160%;
+}
+
+.counterbutt {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #1d1f22;
 }
 
 .rightrow {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: left;
 }
 .cartimage {

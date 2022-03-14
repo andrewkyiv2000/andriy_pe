@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto:wght@500&display=swap');
 
 body {
+  display: flex;
+  flex-direction: column;
   margin-left: 20px;
   margin-right: 20px;
-  width: 1400px;
+  width: 1440px;
   height: 1513px;
   background: #ffffff;
 }
@@ -22,10 +25,22 @@ body {
 .menu {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
+
+.layer {
+  width: 100%;
+  height: 1435px;
+  position: absolute;
+  /*background-color:rgba(20,50,60,0.5);*/
+  background: rgba(57, 55, 72, 0.22);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 80px;
+}
+
 .ttext {
   display: block;
   font-family: "Raleway", sans-serif;
@@ -57,7 +72,6 @@ a:active {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  text-align: center;
   justify-content: center;
   padding-left: 117px;
   padding-right: 32px;
@@ -68,6 +82,7 @@ a:active {
   width: 41px;
   height: 41px;
 }
+
 .actions {
   display: flex;
   flex-direction: row;
@@ -84,11 +99,37 @@ a:active {
   flex-direction: row;
   gap: 10px;
 }
+
+.shopping_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .cart_icon {
   background: url("images/cart.png");
   display: block;
   width: 20px;
   height: 18px;
+}
+
+.shopping_counter {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #1d1f22;
+  border-radius: 60px;
+  margin-bottom: 30px;
+  color: white;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  padding-top:4px;
+  padding-bottom:0px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .cart {

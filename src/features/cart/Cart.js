@@ -8,9 +8,26 @@ import formatCurrency from "format-currency";
 import "./Cart.css";
 
 class Cart extends Component {
+
+
+  ClickHandlerPlus = () => {
+    // parent method passed to child is now available as props
+    // you can call it now & even pass arguments if you like
+    this.props.increment();
+  };
+
+  ClickHandlerMinus = () => {
+    this.props.decrement();
+  };
+
+
   render() {
+    const cartCounter = this.props.cartcounter;
+    const cartRange = this.props.cartrange;
+
     let opts = { format: "%s%v", symbol: "$" };
-    console.log(this.props);
+    const product = this.props.data;
+
     //const attr1 = this.props.items[0].content.attributes[0].items;
     return (
       <div className="page">
@@ -43,8 +60,9 @@ class Cart extends Component {
                   <div></div>
                   <div className="rightrow">
                     <div className="counter">
-                      <button className="counterbutt">+</button>
-                      <button className="counterbutt">-</button>
+                      <button className="counterbutt" onClick={this.ClickHandlerPlus}>+</button>
+                      <span className="cart_counter">{cartCounter}</span>
+                      <button className="counterbutt" onClick={this.ClickHandlerMinus}>-</button>
                     </div>
                     <img className="cartimage" src={item.gallery} />
                   </div>
@@ -58,8 +76,8 @@ class Cart extends Component {
     );
   }
 }
-//получаем состояние, считываем
+//onClick={this.ClickHandlerPlus()}
 
-//определяем экшены
+// onClick={this.decrement()}
 
 export default Cart;

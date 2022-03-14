@@ -23,7 +23,7 @@ class Menu extends Component {
   renderMenu() {
     const MenuItems = this.props.data;
     const dropdownon = this.state.dropdownon;
-    const cartRange = this.props.cartRange
+    const cartRange = this.props.cartRange;
     console.log(cartRange);
 
     return (
@@ -56,16 +56,29 @@ class Menu extends Component {
               </select>
               <span className="currencyicon"></span>
             </div>
-            <a>
-              <span
-                className="cart_icon"
+            <div className="shopping_item">
+              <a>
+                <span
+                  className="cart_icon"
+                  onClick={() =>
+                    this.setState(({ dropdownon }) => ({
+                      dropdownon: !dropdownon,
+                    }))
+                  }
+                ></span>
+              </a>
+              <span className="shopping_counter">1</span>
+            </div>
+            {dropdownon && (
+              <div
+                className="layer"
                 onClick={() =>
                   this.setState(({ dropdownon }) => ({
                     dropdownon: !dropdownon,
                   }))
                 }
-              ></span>
-            </a>
+              ></div>
+            )}
             <div>
               {dropdownon && <CartDropdown cartRange={cartRange} />}
               <hr />

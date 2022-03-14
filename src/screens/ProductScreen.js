@@ -16,13 +16,12 @@ import { withRouter } from "react-router";
 
 class Products extends Component {
   render() {
-    console.log("products", this.props);
     const { product } = this.props.data;
+
     if (!product) {
       return <div>Loading2...</div>;
     }
     const attributeList = product.attributes;
-    console.log(this.props.data);
     let opts = { format: "%s%v", symbol: "$" };
 
     return (
@@ -78,10 +77,15 @@ class Products extends Component {
           <p className="amount">
             {formatCurrency(`${product.prices[0].amount}`, opts)}
           </p>
-          <button className="buttonpdp" onClick={() => this.props.onClick(product)}>
+          <button
+            className="buttonpdp"
+            onClick={() => this.props.onClick(product)}
+          >
             Add to cart
           </button>
-          <Link to="../cart">Show Cart</Link>
+          <Link to="../cart" cartCounter={this.props.cartcounter}>
+            Show Cart
+          </Link>
           <p className="description">
             About the product: {product.description}
           </p>
@@ -90,7 +94,6 @@ class Products extends Component {
     );
   }
 }
-
 
 export default withRouter(
   graphql(PRODID, {
