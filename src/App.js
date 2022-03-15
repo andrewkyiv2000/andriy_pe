@@ -29,22 +29,15 @@ class App extends Component {
     this.state = {
       cartRange: [],
       cartcounter: 0,
-      total: 0,
     };
   }
 
-  
 
-  addtoCart = (product) => {
-    this.setState((state) => {
-      return { cartRange: [...state.cartRange] };
-    });
-  };
 
   increment = () => {
     this.setState({ cartcounter: this.state.cartcounter + 1 });
   };
-  
+
   decrement = () => {
     this.setState({cartcounter: this.state.cartcounter - 1});
   };
@@ -66,10 +59,8 @@ class App extends Component {
       });
     }
   };
-  
 
   render() {
-    console.log(this.props)
     return (
       <ApolloProvider client={client}>
         <ApolloProviderHooks client={client}>
@@ -96,8 +87,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-/* decrement = () => {
-    this.setState({ cartcounter: this.state.cartcounter - 1 });
-  };*/
