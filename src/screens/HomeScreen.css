@@ -1,31 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;400&family=Roboto:wght@500&display=swap');
 /* Home page start*/
 
-.row1, .row2 {
-    display:flex;
-    flex-direction: row;
-    width:1440px;
-    align-content: space-between;
-    justify-content: left;
-    margin-right:0px;
-    margin-left:0px;
-    margin-top:10px;
-    margin-bottom:10px;
-    flex-wrap: wrap;
-  }
-  /*width sets the number of items in a row*/
-  .card {
-    display:flex;
-    flex-direction:row;
-    width:386px;
-    height:444px;
-    justify-content: center; /*puts content of card to bottom*/
-    border:2px solid rgb(219, 219, 219);
-    padding-left:16px;
-    padding-right:5px;
-    margin-right:10px;
-    background-color: #ebe9e9;  
-  }
-  .images {
-    max-width:300px;
-  }
-  /* Home page end*/
+.row1,
+.row2 {
+  display: flex;
+  flex-direction: row;
+  width: 1440px;
+  align-content: space-between;
+  justify-content: left;
+  margin-right: 0px;
+  margin-left: 0px;
+  flex-wrap: wrap;
+}
+/*width sets the number of items in a row*/
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 386px;
+  height: 444px;
+  justify-content: center; /*puts content of card to bottom*/
+  /*border: 2px solid rgb(219, 219, 219);*/
+  padding-left: 16px;
+  padding-right: 5px;
+  margin-right: 10px;
+  margin-bottom:87px;
+  background-color: #FFFFFF;
+}
+.images {
+  width: 356px;
+  height: 338px;
+}
+.itemname {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  color: #1D1F22;
+}
+.itemlink {
+  text-decoration: none;
+  text-underline-position: none;
+}
+
+.itemprice {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: left;
+  color: #1D1F22;
+}
+

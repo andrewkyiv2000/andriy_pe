@@ -10,14 +10,14 @@ import "./Cart.css";
 class Cart extends Component {
 
 
-  ClickHandlerPlus = () => {
+  ClickHandlerPlus = (id) => {
     // parent method passed to child is now available as props
     // you can call it now & even pass arguments if you like
-    this.props.increment();
+    this.props.increment(id);
   };
 
-  ClickHandlerMinus = () => {
-    this.props.decrement();
+  ClickHandlerMinus = (id) => {
+    this.props.decrement(id);
   };
 
 
@@ -44,14 +44,16 @@ class Cart extends Component {
                   </p>
                   <p>
                     <label className="radioLabel">
-                      <div
+                      <div className = 'attrtext' 
                         style={{
                           width: "63px",
                           height: "45px",
-                          border: "1px solid rgb(29, 31, 34)",
+                          border: "1px solid #1D1F22",
                           backgroundColor: item.value,
                         }}
-                      />
+                      >
+                        {item.mainAttr && item.mainAttr.length >0 ? item.mainAttr : ''}  {/*we check if we pressed attr, if none we don't visualize it*/}  
+                      </div>
                     </label>
                   </p>
                   {/*<p>{item.attributes[1].items.displayValue}</p>*/}
@@ -60,9 +62,9 @@ class Cart extends Component {
                   <div></div>
                   <div className="rightrow">
                     <div className="counter">
-                      <button className="counterbutt" onClick={this.ClickHandlerPlus}>+</button>
-                      <span className="cart_counter">{cartCounter}</span>
-                      <button className="counterbutt" onClick={this.ClickHandlerMinus}>-</button>
+                      <button className="counterbutt" onClick={() => this.ClickHandlerPlus(item.id)}>+</button>
+                      <span className="cart_counter">{item.amount}</span>
+                      <button className="counterbutt" onClick={() => this.ClickHandlerMinus(item.id)}>-</button>
                     </div>
                     <img className="cartimage" src={item.gallery} />
                   </div>
@@ -70,7 +72,6 @@ class Cart extends Component {
               </div>
             </div>
           ))}
-          ;
         </div>
       </div>
     );

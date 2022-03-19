@@ -1,54 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
 
-.radioButton {
-    width:292px;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap:12px;
-    border:none;
-    padding-left:none;
-    margin-left:none;
-    margin-top:43px;
+
+.radioinputWrapper {
+display:flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 5px;
+flex-wrap: nowrap;
+}
+.radioinput {
+  height: 45px;
+  width: 63px;
+  font-size: 18px;
+  padding: 10px;
+  margin-right: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
 }
 
-.radioLabel {
-    position:relative;
-    display:inline-block;
-    height:45px;
-    width:63px;
-    box-sizing: border-box;
-    cursor: unset;
+.radioinput.active {
+  background: black;
+  color:white;
+  
 }
 
-.radioLabel:focus-within {
-    border: 1px solid #1D1F22;
-    box-sizing: border-box;
-   
+.attrname {
+  margin-bottom: 8px;
+  margin-top: 10px;
 }
-
-.radioInput[type="radio"] {
-    position:absolute;
-    inset:0;
-    z-index: -1;
-}
-.radioInput[type="radio"]:checked + .shadow{
-    border: 1px solid #1D1F22;
-    z-index: 0;
-}
-
-.radioTitle {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-style:normal;
-    font-weight: 700;
-    font-size:18px;
-}
-
-
-
-
-
-
-
-

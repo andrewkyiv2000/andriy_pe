@@ -11,6 +11,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import selectedCategory from "../elements/selectedCategory.js";
 import { Link } from "react-router-dom";
+import formatCurrency from "format-currency";
 
 class HomeScreen extends Component {
   renderOne() {
@@ -20,6 +21,7 @@ class HomeScreen extends Component {
 
     const url = this.props.location.pathname.split("/");
     const resultUrl = url[url.length - 1];
+    let opts = { format: "%s%v", symbol: "$" };
     console.log(resultUrl)
 
     const catClicked = categories.find(productArray);
@@ -38,14 +40,14 @@ class HomeScreen extends Component {
               {index.products.map((prdz) => {
                 return (
                   <div key={prdz.id} className="card">
-                    <Link to={`/product/${prdz.id}`}>
+                    <Link className='itemlink' to={`/product/${prdz.id}`}>
                       <img
                         className="images"
                         src={prdz.gallery}
                         alt={prdz.name}
                       ></img>
-                      <p>{prdz.name}</p>
-                      <p>{prdz.prices.amount}</p>
+                      <p className="itemname">{prdz.name}</p>
+                      <p className="itemprice">{formatCurrency(`${prdz.prices[0].amount}`, opts)}</p>
                     </Link>
                   </div>
                 );

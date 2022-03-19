@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import logo from "../images/logo.png";
+import logo from "../images/logoback.svg";
 import vector from "../images/vector.png";
-import cart from "../images/cart.png";
+import cart1 from "../images/cart1.svg";
+import cart2 from "../images/cart2.svg";
+import cart3 from "../images/cart3.svg";
 //import { render } from 'react-dom';
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
@@ -10,6 +12,7 @@ import { NavLink, Link } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 import CartDropdown from "./Dropdown/cartdropdown.js";
+import DropdownCurrency from "./Dropdowncurrency/dropdowncurrency.js";
 
 class Menu extends Component {
   constructor(props) {
@@ -17,14 +20,20 @@ class Menu extends Component {
     this.state = {
       click: "category",
       dropdownon: false,
+      dropdowncurrency: false,
     };
   }
 
   renderMenu() {
     const MenuItems = this.props.data;
     const dropdownon = this.state.dropdownon;
+    const dropdowncurrency = this.state.dropdowncurrency;
+    const lineon = this.state.lineon;
     const cartRange = this.props.cartRange;
-    console.log(cartRange);
+    let initialValue = 0;
+    let totalAmount = cartRange
+      .map((item) => item.amount)
+      .reduce((a, b) => a + b, initialValue);
 
     return (
       <div className="menu">
@@ -33,9 +42,14 @@ class Menu extends Component {
             {MenuItems.categories.map((category) => {
               return (
                 <div className="ttext">
-                  <Link to={`/category/${category.name}`}>
-                    <a className="tlink">{category.name}</a>
-                  </Link>
+                  <NavLink
+                    className={(isActive) =>
+                      "categorylink" + (isActive ? " selected" : "")
+                    }
+                    to={`/category/${category.name}`}
+                  >
+                    {category.name}
+                  </NavLink>
                 </div>
               );
             })}
@@ -49,12 +63,27 @@ class Menu extends Component {
         <div className="items1">
           <div className="actions">
             <div className="actions_left">
-              <select className="currency" id="currency">
-                <option>$ </option>
-                <option>€ </option>
-                <option>¥ </option>
-              </select>
-              <span className="currencyicon"></span>
+              <div className="dropdowncurrency">
+                <a>
+                  <span
+                    className="currency_icon"
+                    onClick={() =>
+                      this.setState(({ dropdowncurrency }) => ({
+                        dropdowncurrency: !dropdowncurrency,
+                      }))
+                    }
+                  >
+                    $
+                  </span>
+                </a>
+                <div>{dropdowncurrency && <DropdownCurrency />}</div>
+              </div>
+              <span
+                className={
+                  "currencyicon" +
+                  (this.state.dropdowncurrency === true ? " active" : "")
+                }
+              ></span>
             </div>
             <div className="shopping_item">
               <a>
@@ -65,9 +94,18 @@ class Menu extends Component {
                       dropdownon: !dropdownon,
                     }))
                   }
-                ></span>
+                >
+                  <div>
+                    <img src={cart1}></img>
+                  </div>
+
+                  <div className="cartwheels">
+                    <img className="cart2" src={cart2}></img>
+                    <img className="cart2" src={cart3}></img>
+                  </div>
+                </span>
               </a>
-              <span className="shopping_counter">1</span>
+              <span className="shopping_counter">{totalAmount}</span>
             </div>
             {dropdownon && (
               <div
@@ -80,8 +118,14 @@ class Menu extends Component {
               ></div>
             )}
             <div>
-              {dropdownon && <CartDropdown cartRange={cartRange} />}
-              <hr />
+              {dropdownon && (
+                <CartDropdown
+                  cartRange={cartRange}
+                  total={this.props.total}
+                  increment={this.props.increment}
+                  decrement={this.props.decrement}
+                />
+              )}
             </div>
           </div>
         </div>

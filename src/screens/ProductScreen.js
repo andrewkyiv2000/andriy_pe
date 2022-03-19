@@ -13,8 +13,21 @@ import { connect } from "react-redux";
 import { addItems } from "../features/cart/cartSlice.js";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import Attribute from '../elements/RadioButtonColor/attribute.js';
 
 class Products extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mainAttribute: '',
+      attrName:'',
+    };
+  }
+
+  changeMainAttribute = (newattr, attrName) => {this.setState((state) => {  //function to change state
+    return { mainAttribute: newattr, attrName: attrName}; 
+  });}
+
   render() {
     const { product } = this.props.data;
 
@@ -23,6 +36,7 @@ class Products extends Component {
     }
     const attributeList = product.attributes;
     let opts = { format: "%s%v", symbol: "$" };
+
 
     return (
       <div className="prow">
@@ -40,24 +54,12 @@ class Products extends Component {
           <p className="brand">{product.brand}</p>
           <p className="name">{product.name}</p>
 
-          <div>
-            <ul>
+          <div className="attributes">
+            <div>
               {attributeList.map((attr) => (
-                <RadioButtonColor
-                  name="color"
-                  title={attr.name}
-                  options={attr.items.map((item) => ({
-                    label: item.displayValue,
-                    value: item.value,
-                  }))}
-                  /*onClick={() =>
-                    this.props.addItems({
-                      content: product,
-                    })
-                  }*/
-                />
+                <Attribute data={attr} changeMainAttribute={this.changeMainAttribute}/>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/*<Capacity
@@ -79,13 +81,10 @@ class Products extends Component {
           </p>
           <button
             className="buttonpdp"
-            onClick={() => this.props.onClick(product)}
+            onClick={() => this.props.onClick({...product, mainAttr: this.state.mainAttribute, attrName: this.state.attrName})}
           >
             Add to cart
           </button>
-          <Link to="../cart" cartCounter={this.props.cartcounter}>
-            Show Cart
-          </Link>
           <p className="description">
             About the product: {product.description}
           </p>
