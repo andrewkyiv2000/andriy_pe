@@ -1,19 +1,17 @@
-import React, {Component, Fragment} from 'react';
-import {useQuery, gql} from '@apollo/client';
-import { graphql } from 'graphql';
+import { useQuery, gql } from "@apollo/client";
 
-
-const HOMESCR = gql `
-query Category {
-  category {
-    name
-    products {
-      id
+const HOMESCR = gql`
+  query Category {
+    category {
+      name
+      products {
+        id
+      }
     }
   }
-}
 `;
 
+export default HOMESCR;
 
 /*const HOMESCR = gql`
 query ProductsHome {
@@ -31,5 +29,3 @@ query ProductsHome {
   }
 `;
 */
-
-export default HOMESCR

@@ -10,9 +10,3 @@ class Footer extends Component {
 export default Footer
 
 
-/*
-export default function Footer (){
-    return(
-        <footer class="footer">Scandiweb test assignment</footer>
-    );
-}*/

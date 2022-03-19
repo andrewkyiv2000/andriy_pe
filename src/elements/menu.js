@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import logo from "../images/logoback.svg";
-import vector from "../images/vector.png";
 import cart1 from "../images/cart1.svg";
 import cart2 from "../images/cart2.svg";
 import cart3 from "../images/cart3.svg";
-//import { render } from 'react-dom';
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
-//import CartDropdown from "./Dropdown/Cartdropdown.js";
 import { NavLink, Link } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
-import { useState } from "react";
 import CartDropdown from "./Dropdown/cartdropdown.js";
 import DropdownCurrency from "./Dropdowncurrency/dropdowncurrency.js";
 
@@ -144,7 +139,3 @@ class Menu extends Component {
 }
 
 export default graphql(CAT)(Menu);
-
-//<img src={cart} className="cart"></img>
-//graphql(CAT)(Menu)
-//{this.props.cartRange.map((e)=>e.name)}

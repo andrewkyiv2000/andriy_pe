@@ -1,13 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
 
-
 .radioinputWrapper {
-display:flex;
-flex-direction: row;
-justify-content: flex-start;
-gap: 5px;
-flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+  flex-wrap: nowrap;
 }
 .radioinput {
   height: 45px;
@@ -23,8 +22,7 @@ flex-wrap: nowrap;
 
 .radioinput.active {
   background: black;
-  color:white;
-  
+  color: white;
 }
 
 .attrname {

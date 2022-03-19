@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-//import cart from "../images/cart.png";
-//import CartContext from "../context/CartContext.js";
 import "../Dropdown/cartdropdown.css";
 import formatCurrency from "format-currency";
 import { Link } from "react-router-dom";
-import { stripIgnoredCharacters } from "graphql";
 
 export default class CartDropdown extends Component {
   render() {
@@ -42,7 +39,6 @@ export default class CartDropdown extends Component {
                       </div>
                     </label>
                   </div>
-                  {/*<p>{item.attributes[1].items.displayValue}</p>*/}
                 </div>
                 <div className="dritemright">
                   <div className="rightrow">
@@ -78,7 +74,7 @@ export default class CartDropdown extends Component {
         <div className="bottomblock">
           <div className="total">
             <div className="totalname">Total: </div>
-            <div className="totalfigure">{totalstr}</div>
+            <div className="totalfigure">{totalstr ? totalstr.toString().substring(0,7) : 0}</div>
           </div>
         </div>
         <div className="drbuttons">
@@ -91,6 +87,3 @@ export default class CartDropdown extends Component {
     );
   }
 }
-
-//<h1>Item is {this.props.cartRange.length}</h1>
-// {this.props.cartRange[0].brand}

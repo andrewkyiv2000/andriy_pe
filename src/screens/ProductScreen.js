@@ -1,32 +1,26 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import { gql } from "@apollo/client";
 import { graphql } from "@apollo/client/react/hoc";
 import PRODID from "../GraphQL/ProductId.js";
-import NotFound from "./NotFound.js";
-//import Swatch from '../elements/swatch.js';
 import formatCurrency from "format-currency";
-import RadioButtonColor from "../elements/RadioButtonColor/index.js";
-import Capacity from "../elements/attribute2/index.js";
 import "./ProductScreen.css";
-import { connect } from "react-redux";
-import { addItems } from "../features/cart/cartSlice.js";
-import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import Attribute from '../elements/RadioButtonColor/attribute.js';
+import Attribute from "../elements/RadioButtonColor/attribute.js";
 
 class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainAttribute: '',
-      attrName:'',
+      mainAttribute: "",
+      attrName: "",
     };
   }
 
-  changeMainAttribute = (newattr, attrName) => {this.setState((state) => {  //function to change state
-    return { mainAttribute: newattr, attrName: attrName}; 
-  });}
+  changeMainAttribute = (newattr, attrName) => {
+    this.setState((state) => {
+      //function to change state
+      return { mainAttribute: newattr, attrName: attrName };
+    });
+  };
 
   render() {
     const { product } = this.props.data;
@@ -36,7 +30,6 @@ class Products extends Component {
     }
     const attributeList = product.attributes;
     let opts = { format: "%s%v", symbol: "$" };
-
 
     return (
       <div className="prow">
@@ -57,23 +50,13 @@ class Products extends Component {
           <div className="attributes">
             <div>
               {attributeList.map((attr) => (
-                <Attribute data={attr} changeMainAttribute={this.changeMainAttribute}/>
+                <Attribute
+                  data={attr}
+                  changeMainAttribute={this.changeMainAttribute}
+                />
               ))}
             </div>
           </div>
-
-          {/*<Capacity
-           onChange="changeFunc();"
-            title={product.attributes[1].id}
-            options={product.attributes[1].items.map((item) => {
-              return {
-                id: item.id,
-                displayValue: item.displayValue,
-                value: item.value,
-              };
-             
-            })}
-          />*/}
 
           <p className="pricename">Price: </p>
           <p className="amount">
@@ -81,7 +64,13 @@ class Products extends Component {
           </p>
           <button
             className="buttonpdp"
-            onClick={() => this.props.onClick({...product, mainAttr: this.state.mainAttribute, attrName: this.state.attrName})}
+            onClick={() =>
+              this.props.onClick({
+                ...product,
+                mainAttr: this.state.mainAttribute,
+                attrName: this.state.attrName,
+              })
+            }
           >
             Add to cart
           </button>
@@ -103,8 +92,3 @@ export default withRouter(
     },
   })(Products)
 );
-
-/*<p className="availability">Availability:</p>
-          <p className="availabilityAttr">
-            {product.inStock ? "Available" : "Not in stock"}
-            </p> */

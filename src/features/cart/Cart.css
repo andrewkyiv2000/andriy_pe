@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@500&family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@500&family=Source+Sans+Pro&display=swap");
 
 .page {
   display: flex;
@@ -89,8 +89,8 @@
   justify-content: center;
   align-items: center;
   font-family: "Raleway";
-  font-style:normal;
+  font-style: normal;
   font-size: 16px;
-  font-weight:400;
+  font-weight: 400;
   margin-top: 12px;
 }
