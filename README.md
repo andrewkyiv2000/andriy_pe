@@ -2,7 +2,7 @@
 The project is a [Scandiweb's](www.scandiweb.com) test assignment - a simple e-commerce app with backend endpoint;
 The design looks like that: https://www.figma.com/file/MSyCAqVy1UgNap0pvqH6H3/Junior-Frontend-Test-Designs-Public?node-id=0%3A1 
 The backend is accessible via graphQL;
-I decided not to use Redux for state management and used react native component state instead.
+I decided not to use Redux for state management and used local state instead.
 
 
 ## how to setup
