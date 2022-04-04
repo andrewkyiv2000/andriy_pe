@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import logo from "../images/logoback.svg";
 import cart1 from "../images/cart1.svg";
 import cart2 from "../images/cart2.svg";
@@ -6,10 +6,10 @@ import cart3 from "../images/cart3.svg";
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
 import { NavLink, Link } from "react-router-dom";
-import CartDropdown from "./Dropdown/cartdropdown.js";
+import CartDropdown from "./Dropdown/Cartdropdown.js";
 import DropdownCurrency from "./Dropdowncurrency/dropdowncurrency.js";
 
-class Menu extends Component {
+class Menu extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,8 +25,8 @@ class Menu extends Component {
     const dropdowncurrency = this.state.dropdowncurrency;
     const lineon = this.state.lineon;
     const cartRange = this.props.cartRange;
-    let initialValue = 0;
-    let totalAmount = cartRange
+    const initialValue = 0;
+    const totalAmount = cartRange
       .map((item) => item.amount)
       .reduce((a, b) => a + b, initialValue);
 
@@ -119,6 +119,7 @@ class Menu extends Component {
                   total={this.props.total}
                   increment={this.props.increment}
                   decrement={this.props.decrement}
+                  totalAmount={totalAmount}
                 />
               )}
             </div>
@@ -132,8 +133,6 @@ class Menu extends Component {
     if (this.props.data.loading) {
       return <div>Londing...</div>;
     }
-    console.log(this.props);
-
     return <div>{this.renderMenu()}</div>;
   }
 }

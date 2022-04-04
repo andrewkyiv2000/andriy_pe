@@ -1,7 +1,7 @@
 import "../Dropdowncurrency/dropdowncurrency.css";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-export default class DropdownCurrency extends Component {
+export default class DropdownCurrency extends PureComponent {
   render() {
     return (
       <div className="currencybox">

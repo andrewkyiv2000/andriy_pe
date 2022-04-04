@@ -1,19 +1,11 @@
-import {useQuery, gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
-
-const TITLECAT = gql `
-query {
-    categories{
+const TITLECAT = gql`
+  query {
+    categories {
       name
     }
   }
 `;
 
-
 export default TITLECAT;
-
-
-
-
-
-

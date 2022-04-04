@@ -32,15 +32,19 @@ body {
 }
 
 .layer {
-  width: 100%;
-  height: 1435px;
   position: absolute;
-  /*background-color:rgba(20,50,60,0.5);*/
+  display: block;
+  align-content: center;
+  width: 1440px;
+  height: 200vh;
   background: rgba(57, 55, 72, 0.22);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+  margin-bottom: 0;
   top: 80px;
+  z-index: 1;
 }
 
 .ttext {
@@ -228,17 +232,12 @@ body {
   margin-right: 15px;
   margin-left: 100px;
   margin-top: 82px;
-}
-.ipdp1 {
   margin-bottom: 33px;
   margin-left: 80px;
-  width: 79px;
-  height: 80px;
+  width: 96px;
+  height: 87px;
 }
-.ipdp1 {
-  width: 80px;
-  height: 79px;
-}
+
 /* задает ширину между карточками*/
 
 ul {

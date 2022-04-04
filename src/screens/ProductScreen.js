@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import PRODID from "../GraphQL/ProductId.js";
 import formatCurrency from "format-currency";
 import "./ProductScreen.css";
 import { withRouter } from "react-router";
 import Attribute from "../elements/RadioButtonColor/attribute.js";
+import DOMPurify from "dompurify";
 
-class Products extends Component {
+class Products extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,6 @@ class Products extends Component {
 
   changeMainAttribute = (newattr, attrName) => {
     this.setState((state) => {
-      //function to change state
       return { mainAttribute: newattr, attrName: attrName };
     });
   };
@@ -29,7 +29,10 @@ class Products extends Component {
       return <div>Loading2...</div>;
     }
     const attributeList = product.attributes;
-    let opts = { format: "%s%v", symbol: "$" };
+    const opts = { format: "%s%v", symbol: "$" };
+    const instock = product.inStock;
+    const description = product.description;
+    const clean = DOMPurify.sanitize(description);
 
     return (
       <div className="prow">
@@ -41,7 +44,20 @@ class Products extends Component {
           </div>
         </div>
         <div className="pdp2">
-          <img className="ipdp2" src={product.gallery}></img>
+          {product.inStock === true ? (
+            <img className="ipdp2" src={product.gallery}></img>
+          ) : (
+            <div className="outofstock_block">
+              <img
+                className="ipdp2"
+                style={{ backgroundColor: "#FFFFFF", opacity: 0.5 }}
+                src={product.gallery}
+              ></img>
+              <span style={{ color: "#8D8F9A" }} className="outofstock">
+                OUT OF STOCK
+              </span>
+            </div>
+          )}
         </div>
         <div className="pdp3">
           <p className="brand">{product.brand}</p>
@@ -74,9 +90,15 @@ class Products extends Component {
           >
             Add to cart
           </button>
-          <p className="description">
-            About the product: {product.description}
-          </p>
+          <span id="description" className="description">
+            {
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: clean,
+                }}
+              />
+            }
+          </span>
         </div>
       </div>
     );

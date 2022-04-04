@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 const HOMESCR = gql`
   query Category {
@@ -12,20 +12,3 @@ const HOMESCR = gql`
 `;
 
 export default HOMESCR;
-
-/*const HOMESCR = gql`
-query ProductsHome {
-  category {
-    name
-    products {
-      id
-      name
-      gallery
-      prices {
-        amount
-      }
-      }
-    }
-  }
-`;
-*/

@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 
 export default class CartDropdown extends Component {
   render() {
-    let opts = { format: "%s%v", symbol: "$" };
-    console.log(this.props);
+    const opts = { format: "%s%v", symbol: "$" };
     const totalstr = this.props.total;
 
     return (
       <div className="dropdown_main">
-        <p className="mybag">My bag:</p>{" "}
+        <div className="mybag">
+          My bag,
+          <span className="mybagfigure">{this.props.totalAmount} items</span>
+        </div>
         <div className="dropdown_items">
           {this.props.cartRange.map((item) => (
             <div key={item.id}>
@@ -26,18 +28,35 @@ export default class CartDropdown extends Component {
                     </p>
                   </div>
                   <div className="radioLabel">
-                    <label>
-                      <div
-                        className="attrbox"
-                        style={{
-                          width: "24px",
-                          height: "24px",
-                          border: "1px solid rgb(29, 31, 34)",
-                        }}
-                      >
-                        {item.mainAttr}
-                      </div>
-                    </label>
+                    <div className="labelsrow">
+                      <label>
+                        <div
+                          className="attrbox"
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                            border: "1px solid rgb(29, 31, 34)",
+                            backgroundColor: "black",
+                            color: "white",
+                          }}
+                        >
+                          {item.mainAttr}
+                        </div>
+                      </label>
+                      <label>
+                        <div
+                          className="attrbox2"
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                            border: "1px solid rgb(29, 31, 34)",
+                            backgroundColor: "white",
+                          }}
+                        >
+                          {item.attributes[0].items[0].value}
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div className="dritemright">
@@ -50,7 +69,6 @@ export default class CartDropdown extends Component {
                         >
                           +
                         </button>{" "}
-                        {/* item.id is where we give content to the abstract function from app.js*/}
                       </div>
                       <div>
                         <p>{item.amount}</p>
@@ -73,8 +91,10 @@ export default class CartDropdown extends Component {
         </div>
         <div className="bottomblock">
           <div className="total">
-            <div className="totalname">Total: </div>
-            <div className="totalfigure">{totalstr ? totalstr.toString().substring(0,7) : 0}</div>
+            <div className="totalname">Total:</div>
+            <div className="totalfigure">
+              {totalstr ? totalstr.toString().substring(0, 7) : 0}
+            </div>
           </div>
         </div>
         <div className="drbuttons">

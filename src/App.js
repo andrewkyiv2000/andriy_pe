@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider as ApolloProviderHooks } from "@apollo/client";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -14,7 +14,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,37 +24,36 @@ class App extends Component {
   }
 
   deleteItem = (id) => {
-    //completely delets item from cart
-    let newState = this.state.cartRange.filter((product) => product.id !== id);
-    console.log("deleting", newState);
+    const newState = this.state.cartRange.filter(
+      (product) => product.id !== id
+    );
     this.setState((state) => {
-      return { cartRange: newState }; //changes old into new array
+      return { cartRange: newState };
     });
   };
 
   increment = (id) => {
-    let newState = this.state.cartRange;
-    let index = newState.findIndex((product) => product.id === id);
+    const newState = this.state.cartRange;
+    const index = newState.findIndex((product) => product.id === id);
     newState[index].amount = newState[index].amount + 1;
-    console.log(newState, "new state volume");
 
     this.setState((state) => {
       return {
         cartRange: newState,
         total: state.total + newState[index].prices[0].amount,
-      }; //changes old into new array
+      };
     });
   };
 
   decrement = (id) => {
-    let newState = this.state.cartRange;
-    let index = newState.findIndex((product) => product.id === id);
+    const newState = this.state.cartRange;
+    const index = newState.findIndex((product) => product.id === id);
     if (newState[index].amount === 1) {
       this.setState((state) => {
-        return { total: state.total - newState[index].prices[0].amount }; //add same as below because return here stopps the functions
+        return { total: state.total - newState[index].prices[0].amount };
       });
-      this.deleteItem(id); //the item will be deleted completely from cart
-      return; //if we forget return here, the item will not be deleted
+      this.deleteItem(id);
+      return;
     } else {
       newState[index].amount = newState[index].amount - 1;
     }
@@ -78,7 +77,7 @@ class App extends Component {
       this.increment(product.id);
     } else {
       this.setState((state) => {
-        product = { ...product, amount: 1 }; //adding new item to object, which was not before in array
+        product = { ...product, amount: 1 };
         return {
           cartRange: state.cartRange.concat(product),
           total: state.total + product.prices[0].amount,

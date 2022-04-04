@@ -7,24 +7,21 @@
 
 .dropdown_main {
   position: absolute;
-
   width: 335px;
   height: 540px;
-  /*overflow-y: scroll;
-  overflow-x: none;
-  border: solid black 2px;*/
   top: 78px;
   left: 1028px;
   background-color: rgb(255, 255, 255);
+  z-index: 2;
 }
 .dropdown_items {
   display: flex;
   flex-direction: column;
 }
+
 .mybag {
-  display: inline-block;
-  width: 118px;
   height: 26px;
+  margin-top: 8px;
   margin-left: 16px;
   margin-bottom: 25px;
   top: 86px;
@@ -33,9 +30,17 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 160%;
-  /* identical to box height, or 26px */
   text-align: left;
   color: #1d1f22;
+}
+
+.mybagfigure {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25.6px;
+  padding-left: 7px;
 }
 
 .drrow {
@@ -89,6 +94,23 @@
   background-color: white;
 }
 
+.attrbox2 {
+  text-align: center;
+  color: black;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  background-color: white;
+}
+
+.labelsrow {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
 /* right column */
 .dritemright {
   display: flex;
@@ -115,8 +137,8 @@
 
 .drcartimage {
   display: block;
-  width: 105px;
-  height: 137px;
+  width: 11svw;
+  height: 11vh;
   top: 135px;
 }
 

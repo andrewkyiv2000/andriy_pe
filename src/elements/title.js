@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { PureComponent, Fragment } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import TITLECAT from "../GraphQL/titlecat.js";
 
-class Title extends Component {
+class Title extends PureComponent {
   renderTitl() {
     const catname = this.props.data;
 
@@ -17,7 +17,6 @@ class Title extends Component {
     if (this.props.data.loading) {
       return <div>Londing...</div>;
     }
-
     return <div>{this.renderTitl()}</div>;
   }
 }

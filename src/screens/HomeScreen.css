@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Roboto:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;400&family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;400&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
 /* Home page start*/
 
 .row1,
@@ -24,12 +26,13 @@
   padding-left: 16px;
   padding-right: 5px;
   margin-right: 10px;
-  margin-bottom:87px;
-  background-color: #FFFFFF;
+  margin-bottom: 87px;
+  background-color: #ffffff;
 }
 .images {
-  width: 356px;
+  width: 100%;
   height: 338px;
+  z-index: 0;
 }
 .itemname {
   font-family: "Raleway";
@@ -39,7 +42,7 @@
   line-height: 160%;
   display: flex;
   align-items: center;
-  color: #1D1F22;
+  color: #1d1f22;
 }
 .itemlink {
   text-decoration: none;
@@ -53,6 +56,28 @@
   font-size: 18px;
   line-height: 160%;
   text-align: left;
-  color: #1D1F22;
+  color: #1d1f22;
 }
 
+.outofstock_block {
+  position: relative;
+}
+
+.outofstock {
+  position: absolute;
+  left: 25.42%;
+  right: 25.71%;
+  top: 44.24%;
+  bottom: 43.94%;
+  z-index: 1;
+  display: flex;
+  align-content: center;
+  margin-bottom: 30px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+}
