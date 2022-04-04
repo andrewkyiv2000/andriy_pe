@@ -23,4 +23,4 @@ The GraphQL server will be accessible at localhost:4000;
 The website will be accessible at localhost:3000;
 
 ### Up-to-date branch: 
-* main (renamed task2n)
+* task2n
