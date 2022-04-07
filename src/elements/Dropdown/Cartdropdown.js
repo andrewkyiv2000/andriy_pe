@@ -65,7 +65,7 @@ export default class CartDropdown extends Component {
                       <div>
                         <button
                           className="drcounterbutt"
-                          onClick={() => this.props.increment(item.id)}
+                          onClick={() => this.props.increment(item.mainAttr)}
                         >
                           +
                         </button>{" "}
@@ -76,13 +76,16 @@ export default class CartDropdown extends Component {
                       <div>
                         <button
                           className="drcounterbutt"
-                          onClick={() => this.props.decrement(item.id)}
+                          onClick={() => this.props.decrement(item.mainAttr)}
                         >
                           -
                         </button>
                       </div>
                     </div>
-                    <img className="drcartimage" src={item.gallery} />
+                    <img
+                      className="drcartimage"
+                      src={item.gallery[0] ? item.gallery[0] : item.gallery[2]}
+                    />
                   </div>
                 </div>
               </div>

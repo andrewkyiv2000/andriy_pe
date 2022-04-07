@@ -70,19 +70,22 @@ class Cart extends Component {
                     <div className="counter">
                       <button
                         className="counterbutt"
-                        onClick={() => this.ClickHandlerPlus(item.id)}
+                        onClick={() => this.ClickHandlerPlus(item.mainAttr)}
                       >
                         +
                       </button>
                       <span className="cart_counter">{item.amount}</span>
                       <button
                         className="counterbutt"
-                        onClick={() => this.ClickHandlerMinus(item.id)}
+                        onClick={() => this.ClickHandlerMinus(item.mainAttr)}
                       >
                         -
                       </button>
                     </div>
-                    <img className="cartimage" src={item.gallery} />
+                    <img
+                      className="cartimage"
+                      src={item.gallery[0] ? item.gallery[0] : item.gallery[2]}
+                    />
                   </div>
                 </div>
               </div>

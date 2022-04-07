@@ -24,28 +24,39 @@ class Products extends PureComponent {
 
   render() {
     const { product } = this.props.data;
-
-    if (!product) {
-      return <div>Loading2...</div>;
-    }
     const attributeList = product.attributes;
     const opts = { format: "%s%v", symbol: "$" };
     const instock = product.inStock;
     const description = product.description;
     const clean = DOMPurify.sanitize(description);
 
+    if (!product) {
+      return <div>Loading2...</div>;
+    }
     return (
       <div className="prow">
         <div className="pdp1">
           <div className="bpdp1">
-            <img className="ipdp1" src={product.gallery}></img>
-            <img className="ipdp1" src={product.gallery}></img>
-            <img className="ipdp1" src={product.gallery}></img>
+            <img
+              className="ipdp1"
+              src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
+            ></img>
+            <img
+              className="ipdp1"
+              src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
+            ></img>
+            <img
+              className="ipdp1"
+              src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
+            ></img>
           </div>
         </div>
         <div className="pdp2">
           {product.inStock === true ? (
-            <img className="ipdp2" src={product.gallery}></img>
+            <img
+              className="ipdp2"
+              src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
+            ></img>
           ) : (
             <div className="outofstock_block">
               <img

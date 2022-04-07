@@ -23,18 +23,22 @@ class App extends PureComponent {
     };
   }
 
-  deleteItem = (id) => {
+  deleteItem = (mainAttr) => {
     const newState = this.state.cartRange.filter(
-      (product) => product.id !== id
+      (product) => product.mainAttr !== mainAttr
     );
     this.setState((state) => {
-      return { cartRange: newState };
+      return {
+        cartRange: newState,
+      };
     });
   };
 
-  increment = (id) => {
+  increment = (mainAttr) => {
     const newState = this.state.cartRange;
-    const index = newState.findIndex((product) => product.id === id);
+    const index = newState.findIndex(
+      (product) => product.mainAttr === mainAttr
+    );
     newState[index].amount = newState[index].amount + 1;
 
     this.setState((state) => {
@@ -45,14 +49,16 @@ class App extends PureComponent {
     });
   };
 
-  decrement = (id) => {
+  decrement = (mainAttr) => {
     const newState = this.state.cartRange;
-    const index = newState.findIndex((product) => product.id === id);
+    const index = newState.findIndex(
+      (product) => product.mainAttr === mainAttr
+    );
     if (newState[index].amount === 1) {
       this.setState((state) => {
         return { total: state.total - newState[index].prices[0].amount };
       });
-      this.deleteItem(id);
+      this.deleteItem(mainAttr);
       return;
     } else {
       newState[index].amount = newState[index].amount - 1;
@@ -69,12 +75,12 @@ class App extends PureComponent {
     let isProductInCart = false;
 
     for (let value of this.state.cartRange) {
-      if (value.id === product.id) {
+      if (value.mainAttr === product.mainAttr) {
         isProductInCart = true;
       }
     }
     if (isProductInCart === true) {
-      this.increment(product.id);
+      this.increment(product.mainAttr);
     } else {
       this.setState((state) => {
         product = { ...product, amount: 1 };
@@ -100,7 +106,10 @@ class App extends PureComponent {
             />
             <Switch>
               <Route path="/product/:id" exact>
-                <Products onClick={this.cartCheckupVolume} />{" "}
+                <Products
+                  cartRange={this.state.cartRange}
+                  onClick={this.cartCheckupVolume}
+                />{" "}
               </Route>
               <Route path="/category/:id" component={HomeScreen}></Route>
               <Route path="/cart">
