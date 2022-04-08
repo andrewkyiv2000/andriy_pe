@@ -16,7 +16,7 @@ export default class CartDropdown extends Component {
         </div>
         <div className="dropdown_items">
           {this.props.cartRange.map((item) => (
-            <div key={item.id}>
+            <div key={item.mainAttr}>
               <div className="drrow">
                 <div className="dritemleft">
                   <div>
@@ -84,6 +84,7 @@ export default class CartDropdown extends Component {
                     </div>
                     <img
                       className="drcartimage"
+                      alt=""
                       src={item.gallery[0] ? item.gallery[0] : item.gallery[2]}
                     />
                   </div>

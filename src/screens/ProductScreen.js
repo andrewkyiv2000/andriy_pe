@@ -24,28 +24,31 @@ class Products extends PureComponent {
 
   render() {
     const { product } = this.props.data;
-    const attributeList = product.attributes;
-    const opts = { format: "%s%v", symbol: "$" };
-    const instock = product.inStock;
-    const description = product.description;
-    const clean = DOMPurify.sanitize(description);
 
     if (!product) {
       return <div>Loading2...</div>;
     }
+    const attributeList = product.attributes;
+    const opts = { format: "%s%v", symbol: "$" };
+    const description = product.description;
+    const clean = DOMPurify.sanitize(description);
+
     return (
       <div className="prow">
         <div className="pdp1">
           <div className="bpdp1">
             <img
+              alt=""
               className="ipdp1"
               src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
             ></img>
             <img
+              alt=""
               className="ipdp1"
               src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
             ></img>
             <img
+              alt=""
               className="ipdp1"
               src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
             ></img>
@@ -54,12 +57,14 @@ class Products extends PureComponent {
         <div className="pdp2">
           {product.inStock === true ? (
             <img
+              alt=""
               className="ipdp2"
               src={product.gallery[0] ? product.gallery[0] : product.gallery[2]}
             ></img>
           ) : (
             <div className="outofstock_block">
               <img
+                alt=""
                 className="ipdp2"
                 style={{ backgroundColor: "#FFFFFF", opacity: 0.5 }}
                 src={product.gallery}
@@ -78,6 +83,7 @@ class Products extends PureComponent {
             <div>
               {attributeList.map((attr) => (
                 <Attribute
+                  key={attr.id}
                   data={attr}
                   changeMainAttribute={this.changeMainAttribute}
                 />

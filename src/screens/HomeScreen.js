@@ -13,14 +13,7 @@ class HomeScreen extends PureComponent {
   renderOne() {
     const categories = this.props.data.categories;
     const index = categories[0];
-    const url = this.props.location.pathname.split("/");
-    const resultUrl = url[url.length - 1];
     const opts = { format: "%s%v", symbol: "$" };
-    const catClicked = categories.find(productArray);
-
-    function productArray(item) {
-      return item.name === selectedCategory.resultUrl;
-    }
 
     return (
       <div className="box">
@@ -74,8 +67,6 @@ class HomeScreen extends PureComponent {
   }
 
   render() {
-    const { match, location, history } = this.props;
-
     if (this.props.data.loading) {
       return <div>Loading1...</div>;
     }

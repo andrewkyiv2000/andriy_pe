@@ -11,7 +11,7 @@
   position: absolute;
   text-align: left;
   margin-left: 101px;
-  font-family: Raleway;
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -61,7 +61,7 @@
 
 .cart_counter {
   text-align: center;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -88,7 +88,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: 400;

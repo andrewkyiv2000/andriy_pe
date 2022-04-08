@@ -5,7 +5,7 @@ import cart2 from "../images/cart2.svg";
 import cart3 from "../images/cart3.svg";
 import CAT from "../GraphQL/Category.js";
 import { graphql } from "@apollo/client/react/hoc";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartDropdown from "./Dropdown/Cartdropdown.js";
 import DropdownCurrency from "./Dropdowncurrency/dropdowncurrency.js";
 
@@ -23,7 +23,6 @@ class Menu extends PureComponent {
     const MenuItems = this.props.data;
     const dropdownon = this.state.dropdownon;
     const dropdowncurrency = this.state.dropdowncurrency;
-    const lineon = this.state.lineon;
     const cartRange = this.props.cartRange;
     const initialValue = 0;
     const totalAmount = cartRange
@@ -36,7 +35,7 @@ class Menu extends PureComponent {
           <div className="categories">
             {MenuItems.categories.map((category) => {
               return (
-                <div className="ttext">
+                <div key={category.name} className="ttext">
                   <NavLink
                     className={(isActive) =>
                       "categorylink" + (isActive ? " selected" : "")
@@ -52,14 +51,14 @@ class Menu extends PureComponent {
         </div>
         <div className="items1">
           <div className="a-logo">
-            <img src={logo}></img>
+            <img src={logo} alt=""></img>
           </div>
         </div>
         <div className="items1">
           <div className="actions">
             <div className="actions_left">
               <div className="dropdowncurrency">
-                <a>
+                <button className="dropdowncurrency_button">
                   <span
                     className="currency_icon"
                     onClick={() =>
@@ -70,7 +69,7 @@ class Menu extends PureComponent {
                   >
                     $
                   </span>
-                </a>
+                </button>
                 <div>{dropdowncurrency && <DropdownCurrency />}</div>
               </div>
               <span
@@ -81,7 +80,7 @@ class Menu extends PureComponent {
               ></span>
             </div>
             <div className="shopping_item">
-              <a>
+              <button className="shopping_button">
                 <span
                   className="cart_icon"
                   onClick={() =>
@@ -91,15 +90,15 @@ class Menu extends PureComponent {
                   }
                 >
                   <div>
-                    <img src={cart1}></img>
+                    <img src={cart1} alt=""></img>
                   </div>
 
                   <div className="cartwheels">
-                    <img className="cart2" src={cart2}></img>
-                    <img className="cart2" src={cart3}></img>
+                    <img className="cart2" src={cart2} alt=""></img>
+                    <img className="cart2" src={cart3} alt=""></img>
                   </div>
                 </span>
-              </a>
+              </button>
               <span className="shopping_counter">{totalAmount}</span>
             </div>
             {dropdownon && (
@@ -131,7 +130,7 @@ class Menu extends PureComponent {
 
   render() {
     if (this.props.data.loading) {
-      return <div>Londing...</div>;
+      return <div>Loading...</div>;
     }
     return <div>{this.renderMenu()}</div>;
   }

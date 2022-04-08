@@ -86,7 +86,7 @@
 .attrbox {
   text-align: center;
   color: black;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -97,7 +97,7 @@
 .attrbox2 {
   text-align: center;
   color: black;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

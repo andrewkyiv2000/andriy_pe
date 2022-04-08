@@ -9,7 +9,6 @@ import formatCurrency from "format-currency";
 class selectedCategory extends PureComponent {
   render() {
     const product = this.props.data.categories;
-    const pathname = this.props.location.pathname;
     const opts = { format: "%s%v", symbol: "$" };
     const url = this.props.location.pathname.split("/");
     const resultUrl = url[url.length - 1];

@@ -11,6 +11,9 @@
 .radioinput {
   height: 45px;
   width: 63px;
+  font-family: "Source Sans Pro", "sans-serif";
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   padding: 10px;
   margin-right: 5px;
@@ -21,6 +24,7 @@
 }
 
 .radioinput.active {
+  font-family: "Source Sans Pro", "sans-serif";
   background: black;
   color: white;
 }

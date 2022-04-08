@@ -54,8 +54,8 @@ export default class Attribute extends PureComponent {
                   fontSize: this.props.data.name === "Color" ? "0px" : "16px",
                 }}
                 type="button"
-                key={item.value}
                 value={item.value}
+                key={item.value}
                 id={item.value}
                 name={item.name}
               />

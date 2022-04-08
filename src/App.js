@@ -103,12 +103,14 @@ class App extends PureComponent {
               total={this.state.total}
               increment={this.increment}
               decrement={this.decrement}
+              mainAttr={this.state.mainAttr}
             />
             <Switch>
               <Route path="/product/:id" exact>
                 <Products
                   cartRange={this.state.cartRange}
                   onClick={this.cartCheckupVolume}
+                  mainAttr={this.state.mainAttr}
                 />{" "}
               </Route>
               <Route path="/category/:id" component={HomeScreen}></Route>

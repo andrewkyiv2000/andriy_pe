@@ -3,26 +3,22 @@ import formatCurrency from "format-currency";
 import "./Cart.css";
 
 class Cart extends Component {
-  ClickHandlerPlus = (id) => {
-    this.props.increment(id);
+  ClickHandlerPlus = (mainAttr) => {
+    this.props.increment(mainAttr);
   };
 
-  ClickHandlerMinus = (id) => {
-    this.props.decrement(id);
+  ClickHandlerMinus = (mainAttr) => {
+    this.props.decrement(mainAttr);
   };
 
   render() {
-    const cartCounter = this.props.cartcounter;
-    const cartRange = this.props.cartrange;
     const opts = { format: "%s%v", symbol: "$" };
-    const product = this.props.data;
-
     return (
       <div className="page">
         <div className="cart">CART </div>
         <div className="list">
           {this.props.cartRange.map((item) => (
-            <div key={item.id}>
+            <div key={item.mainAttr}>
               <div className="row">
                 <div className="itemleft">
                   <p className="brand">{item.brand}</p>
@@ -30,7 +26,7 @@ class Cart extends Component {
                   <p className="amount">
                     {formatCurrency(`${item.prices[0].amount}`, opts)}
                   </p>
-                  <p>
+                  <div>
                     <div className="radiolabelrow">
                       <label className="radioLabel">
                         <div
@@ -62,7 +58,7 @@ class Cart extends Component {
                         </div>
                       </label>
                     </div>
-                  </p>
+                  </div>
                 </div>
                 <div className="itemright">
                   <div></div>
@@ -84,6 +80,7 @@ class Cart extends Component {
                     </div>
                     <img
                       className="cartimage"
+                      alt=""
                       src={item.gallery[0] ? item.gallery[0] : item.gallery[2]}
                     />
                   </div>

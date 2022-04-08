@@ -5,15 +5,15 @@ export default class DropdownCurrency extends PureComponent {
   render() {
     return (
       <div className="currencybox">
-        <a>
+        <div>
           <span className="currencytext">$ USD</span>
-        </a>
-        <a>
+        </div>
+        <div>
           <span className="currencytext">€ EUR</span>
-        </a>
-        <a>
+        </div>
+        <div>
           <span className="currencytext">¥ JPY</span>
-        </a>
+        </div>
       </div>
     );
   }
